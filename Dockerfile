@@ -1,5 +1,5 @@
 # Use an official OpenJDK runtime as a parent image
-FROM openjdk:24-ea-jdk-bullseye
+FROM openjdk:28-ea-trixie
 
 RUN <<EOF
     apt-get -y update
@@ -13,7 +13,7 @@ WORKDIR /app
 # RUN wget https://github.com/sievericcardo/GreenHouseDT_API/releases/download/v0.2/greenhouse_api.jar
 
 # Copy the executable jar file to the container
-COPY greenhouse_api.jar /app/greenhouse_api.jar
+COPY build/libs/greenhouse_api-0.4.0.jar /app/greenhouse_api.jar
 
 # Download the smol folder
 # RUN wget https://github.com/sievericcardo/GreenHouseDT_API/releases/download/v0.2/SMOL.zip
